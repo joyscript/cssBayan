@@ -19,7 +19,6 @@ body {
 }
 
 .accordion * {
-  cursor: pointer;
   transition: 0.3s linear;
 }
 
@@ -92,6 +91,10 @@ label:active .text {
 }
 
 @media (hover: hover) {
+  .accordion * {
+    cursor: pointer;
+  }
+
   .icon {
     opacity: 0;
   }
