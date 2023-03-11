@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(252, 255, 237);
+  overflow-y: scroll;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+.accordion * {
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+.title {
+  padding: 0.2rem 0.2rem 1.5rem;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.accordion {
+  font-size: 1.2rem;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  font-size: 1em;
+  color: rgb(0, 64, 202);
+}
+
+.icon {
+  font-size: 1.2em;
+  opacity: 0;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: block;
+  padding: 1rem 0.2rem;
+  border-top: 0.1rem solid #ddd;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  max-height: 0;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: top center;
+}
+
+input:checked + label > img {
+  max-height: 100vh;
+  margin-top: 1rem;
+  opacity: 1;
+  transform: scale(1);
+}
+
+input:checked + label .text {
+  color: #000;
+}
+
+input:checked + label .icon {
+  transform: rotate(135deg) scale(1.1);
+}
+
+label:active {
+  opacity: 0.7;
+}
+
+label:active .text {
+  color: rgb(0, 64, 202) !important;
+}
+
+@media (hover: hover) {
+  .accordion:hover .text {
+    color: #000;
+  }
+
+  .accordion:hover .icon {
+    opacity: 1;
+  }
+
+  label:hover img {
+    max-height: 100vh;
+    margin-top: 1rem;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  label:hover .item-title {
+    color: #000;
+  }
+
+  label:hover .icon {
+    transform: rotate(135deg) scale(1.1);
+  }
+}
