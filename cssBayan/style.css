@@ -5,7 +5,7 @@
 }
 
 body {
-  background: rgb(252, 255, 237);
+  background: rgb(255, 255, 237);
   overflow-y: scroll;
 }
 
@@ -44,7 +44,6 @@ body {
 
 .icon {
   font-size: 1.2em;
-  opacity: 0;
 }
 
 input {
@@ -93,6 +92,10 @@ label:active .text {
 }
 
 @media (hover: hover) {
+  .icon {
+    opacity: 0;
+  }
+
   .accordion:hover .text {
     color: #000;
   }
@@ -114,5 +117,30 @@ label:active .text {
 
   label:hover .icon {
     transform: rotate(135deg) scale(1.1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    padding-bottom: 1rem;
+    font-size: 1.9rem;
+  }
+
+  .accordion {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .accordion {
+    font-size: 1rem;
   }
 }
