@@ -11,15 +11,18 @@ body {
 
 .wrapper {
   width: 100%;
-  max-width: 60rem;
+  max-width: 70rem;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 10rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
+  background: rgb(241, 255, 219);
+  box-shadow: 0 0 1rem #ddd;
 }
 
 .accordion * {
-  transition: 0.3s linear;
+  transition: 0.4s ease-in-out;
 }
 
 .title {
@@ -39,6 +42,7 @@ body {
   gap: 1em;
   font-size: 1em;
   color: rgb(0, 64, 202);
+  user-select: none;
 }
 
 .icon {
@@ -63,7 +67,7 @@ img {
   max-height: 0;
   margin: 0 auto;
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0.7);
   transform-origin: top center;
 }
 
@@ -74,7 +78,9 @@ input:checked + label > img {
   transform: scale(1);
 }
 
-input:checked + label .text {
+/* It's important to specify both selectors for the same speed of change */
+input:checked + label .text,
+input:checked + label .icon {
   color: #000;
 }
 
@@ -86,7 +92,8 @@ label:active {
   opacity: 0.7;
 }
 
-label:active .text {
+label:active .text,
+label:active .icon {
   color: rgb(0, 64, 202) !important;
 }
 
@@ -124,6 +131,11 @@ label:active .text {
 }
 
 @media (max-width: 1024px) {
+  .wrapper {
+    padding: 2rem 8vw;
+    box-shadow: none;
+  }
+
   .title {
     padding-bottom: 1rem;
     font-size: 1.9rem;
@@ -136,7 +148,7 @@ label:active .text {
 
 @media (max-width: 600px) {
   .wrapper {
-    padding: 1rem;
+    padding: 1rem 5vw;
   }
 
   .title {
