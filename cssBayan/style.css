@@ -85,7 +85,7 @@ input:checked + label .icon {
 }
 
 input:checked + label .icon {
-  transform: rotate(135deg) scale(1.1);
+  transform: rotate(135deg);
 }
 
 label:active {
@@ -111,6 +111,7 @@ label:active .icon {
   }
 
   .accordion:hover .icon {
+    color: #000;
     opacity: 1;
   }
 
@@ -126,7 +127,7 @@ label:active .icon {
   }
 
   label:hover .icon {
-    transform: rotate(135deg) scale(1.1);
+    transform: rotate(135deg);
   }
 }
 
