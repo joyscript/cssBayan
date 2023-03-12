@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(255, 255, 237);
+  overflow-y: scroll;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 70rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 10rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  background: rgb(241, 255, 219);
+  box-shadow: 0 0 1rem #ddd;
+}
+
+.accordion * {
+  transition: 0.4s ease-in-out;
+}
+
+.title {
+  padding: 0.2rem 0.2rem 1.5rem;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.accordion {
+  font-size: 1.2rem;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  font-size: 1em;
+  color: rgb(0, 64, 202);
+  user-select: none;
+}
+
+.icon {
+  font-size: 1.2em;
+  color: rgb(0, 64, 202); /*it's necessary in order to avoid a delay with the change*/
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: block;
+  padding: 1rem 0.2rem;
+  border-top: 0.1rem solid #ddd;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  max-height: 0;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scale(0.7);
+  transform-origin: top center;
+}
+
+input:checked ~ img {
+  max-height: 100vh;
+  margin-top: 1rem;
+  opacity: 1;
+  transform: scale(1);
+}
+
+input:checked + .text {
+  color: #000;
+}
+
+input:checked + .text .icon {
+  color: #000;
+  transform: rotate(135deg);
+}
+
+label:active {
+  opacity: 0.7;
+}
+
+label:active .text,
+label:active .icon {
+  color: rgb(0, 64, 202) !important;
+}
+
+@media (hover: hover) {
+  .accordion * {
+    cursor: pointer;
+  }
+
+  .icon {
+    opacity: 0;
+  }
+
+  .accordion:hover .text {
+    color: #000;
+  }
+
+  .accordion:hover .icon {
+    color: #000;
+    opacity: 1;
+  }
+
+  label:hover img {
+    max-height: 100vh;
+    margin-top: 1rem;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  label:hover .icon {
+    transform: rotate(135deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    padding: 2rem 8vw;
+    box-shadow: none;
+  }
+
+  .title {
+    padding-bottom: 1rem;
+    font-size: 1.9rem;
+  }
+
+  .accordion {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 1rem 5vw;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .accordion {
+    font-size: 1rem;
+  }
+}
